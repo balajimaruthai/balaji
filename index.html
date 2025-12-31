@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For My Angel 💕</title>
+
+<style>
+body{
+  margin:0;
+  font-family:cursive;
+  background:linear-gradient(180deg,#ffd6e8,#ff9acb);
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* floating hearts */
+.heart{
+  position:absolute;
+  font-size:20px;
+  animation:float 8s linear infinite;
+  opacity:0.6;
+}
+@keyframes float{
+  from{transform:translateY(100vh);opacity:1;}
+  to{transform:translateY(-10vh);opacity:0;}
+}
+
+.box{
+  background:#fff0f7;
+  padding:25px;
+  border-radius:25px;
+  width:90%;
+  max-width:400px;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+  z-index:2;
+  animation:fade 1s;
+}
+@keyframes fade{
+  from{opacity:0;transform:scale(0.9);}
+  to{opacity:1;transform:scale(1);}
+}
+
+.hidden{display:none;}
+button{
+  padding:10px 22px;
+  margin:8px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:15px;
+}
+.pink{background:#ff5fa2;color:white;}
+.gray{background:#eee;}
+
+.big{font-size:40px;}
+.gift{font-size:45px;cursor:pointer;}
+.back{cursor:pointer;margin-top:10px;}
+
+.text{
+  color:#7a0c43;
+  line-height:1.6;
+  font-size:15px;
+}
+
+/* rain tears */
+.tear{
+  position:absolute;
+  font-size:20px;
+  animation:rain 3s linear infinite;
+}
+@keyframes rain{
+  from{transform:translateY(-10vh);}
+  to{transform:translateY(110vh);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEART BACKGROUND -->
+<script>
+for(let i=0;i<25;i++){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💗";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDelay=Math.random()*6+"s";
+  document.body.appendChild(h);
+}
+</script>
+
+<!-- PAGE 1 -->
+<div class="box" id="page1">
+  <h3>Enna pudikuma? 💭</h3>
+  <button class="pink" onclick="goPass()">💖 Pudikum</button>
+  <button class="gray" onclick="goNo()">😠 Pudikala</button>
+</div>
+
+<!-- PASSWORD -->
+<div class="box hidden" id="passPage">
+  <p>Password podu 🤍</p>
+  <input type="password" id="pass">
+  <br><br>
+  <button class="pink" onclick="check()">Enter</button>
+</div>
+
+<!-- LOVE PAGE -->
+<div class="box hidden" id="lovePage">
+  <div class="big">👸💖</div>
+  <p class="text">
+    En thangathuku naa soldra speciala New Year wish 💕<br>
+    Thank you for being this year with me.<br><br>
+    Epovum nee nenaipiyanu therila,<br>
+    naa epovum irukanumnu aasai padren.<br><br>
+    <b>Happy New Year angeluhhhhh 😘💕</b>
+  </p>
+  <div class="gift" onclick="openGift()">🎁</div>
+</div>
+
+<!-- GIFT PAGE -->
+<div class="box hidden" id="giftPage">
+  <div class="big">🍫🎁🍬💝</div>
+  <p class="text">
+    Can you be with me? 💞
+  </p>
+  <button class="pink" onclick="yes()">Yes 💕</button>
+  <button class="gray" onclick="no()">No 💔</button>
+</div>
+
+<!-- YES PAGE -->
+<div class="box hidden" id="yesPage">
+  <div class="big">🤗💞</div>
+  <p class="text">
+    Thank you 💕<br><br>
+    Baby, Chellaoo, Thango,<br>
+    Sweet heart, Pisasu,<br>
+    Bunuhh Kutty 🥹💖<br><br>
+    Epovum nee mattunthaan<br>
+    en angeluhh 😇<br>
+    Thank you & miss you 💕
+  </p>
+</div>
+
+<!-- NO PAGE -->
+<div class="box hidden" id="noPage">
+  <div class="big">😢</div>
+  <p class="text">
+    Enakku romba kashtama iruku…
+  </p>
+  <div class="back" onclick="back()">🔙 Back</div>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">
+</audio>
+
+<script>
+function goPass(){
+  page1.classList.add("hidden");
+  passPage.classList.remove("hidden");
+  music.play();
+}
+function check(){
+  if(pass.value==="1407"){
+    passPage.classList.add("hidden");
+    lovePage.classList.remove("hidden");
+  }else alert("Wrong password 😌");
+}
+function openGift(){
+  lovePage.classList.add("hidden");
+  giftPage.classList.remove("hidden");
+}
+function yes(){
+  giftPage.classList.add("hidden");
+  yesPage.classList.remove("hidden");
+}
+function no(){
+  giftPage.classList.add("hidden");
+  noPage.classList.remove("hidden");
+
+  for(let i=0;i<25;i++){
+    let t=document.createElement("div");
+    t.className="tear";
+    t.innerHTML="💧";
+    t.style.left=Math.random()*100+"vw";
+    t.style.animationDelay=Math.random()*2+"s";
+    document.body.appendChild(t);
+  }
+}
+function goNo(){
+  page1.classList.add("hidden");
+  noPage.classList.remove("hidden");
+}
+function back(){
+  noPage.classList.add("hidden");
+  page1.classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
